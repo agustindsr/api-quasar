@@ -283,45 +283,5 @@
             <param name="provider"></param>
             <param name="options"></param>
         </member>
-        <member name="T:Meli.Quasar.Api.ViewModels.SampleController.CreateSample.Input.SampleModel">
-            <summary>
-            Sample Model
-            </summary>
-        </member>
-        <member name="P:Meli.Quasar.Api.ViewModels.SampleController.CreateSample.Input.SampleModel.Description">
-            <summary>
-            Descripción
-            </summary>
-        </member>
-        <member name="T:Meli.Quasar.Api.ViewModels.SampleController.CreateSample.Output.SampleModelResponse">
-            <summary>
-            Sample Model Response
-            </summary>
-        </member>
-        <member name="P:Meli.Quasar.Api.ViewModels.SampleController.CreateSample.Output.SampleModelResponse.Id">
-            <summary>
-            Id
-            </summary>
-        </member>
-        <member name="P:Meli.Quasar.Api.ViewModels.SampleController.CreateSample.Output.SampleModelResponse.Description">
-            <summary>
-            Descripción
-            </summary>
-        </member>
-        <member name="T:Meli.Quasar.Api.ViewModels.SampleController.UpdateSample.Input.UpdateSampleModel">
-            <summary>
-            Sample Model
-            </summary>
-        </member>
-        <member name="P:Meli.Quasar.Api.ViewModels.SampleController.UpdateSample.Input.UpdateSampleModel.Id">
-            <summary>
-            Id
-            </summary>
-        </member>
-        <member name="P:Meli.Quasar.Api.ViewModels.SampleController.UpdateSample.Input.UpdateSampleModel.Description">
-            <summary>
-            Descripción
-            </summary>
-        </member>
     </members>
 </doc>
