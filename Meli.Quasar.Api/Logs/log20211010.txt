@@ -3354,3 +3354,450 @@ var n,r=this&&this.__extends||(n=function(e,t){return(n=Object.setPrototypeOf||{
 2021-10-10 14:54:20 [INF]  Executed endpoint 'Meli.Quasar.Api.Controllers.CommunicationController.GetSatellitesSlipts (Meli.Quasar.Api)'
 2021-10-10 14:54:20 [DBG]  Response: https {"Value":"localhost:49153","HasValue":true,"Host":"localhost","Port":49153,"$type":"HostString"} {"Value":"/satellites_slipts","HasValue":true,"$type":"PathString"} {"Value":"","HasValue":false,"$type":"QueryString"} 200 [] "0001-01-01T00:00:00.0000000+00:00"
 2021-10-10 14:54:20 [INF]  Request finished in 369.6326ms 200 application/json; charset=utf-8
+2021-10-10 12:13:55 [INF]  Starting web host
+2021-10-10 12:13:57 [INF]  Application started. Press Ctrl+C to shut down.
+2021-10-10 12:13:57 [INF]  Hosting environment: Development
+2021-10-10 12:13:57 [INF]  Content root path: C:\Users\Slingr\Desktop\MELI\arquetipo-spv-netcore3.1\Meli.Quasar.Api\Meli.Quasar.Api
+2021-10-10 12:13:57 [INF]  Request starting HTTP/2.0 GET https://localhost:44340/swagger/index.html  
+2021-10-10 12:13:57 [DBG]  Request: https {"Value":"localhost:44340","HasValue":true,"Host":"localhost","Port":44340,"$type":"HostString"} {"Value":"/swagger/index.html","HasValue":true,"$type":"PathString"} {"Value":"","HasValue":false,"$type":"QueryString"}  "0001-01-01T00:00:00.0000000+00:00"
+2021-10-10 12:13:57 [DBG]  Response: https {"Value":"localhost:44340","HasValue":true,"Host":"localhost","Port":44340,"$type":"HostString"} {"Value":"/swagger/index.html","HasValue":true,"$type":"PathString"} {"Value":"","HasValue":false,"$type":"QueryString"} 200 <!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Swagger UI</title>
+    <link rel="stylesheet" type="text/css" href="./swagger-ui.css">
+    <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16" />
+    <style>
+
+        html {
+            box-sizing: border-box;
+            overflow: -moz-scrollbars-vertical;
+            overflow-y: scroll;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        body {
+            margin: 0;
+            background: #fafafa;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div id="swagger-ui"></div>
+
+    <!-- Workaround for https://github.com/swagger-api/swagger-editor/issues/1371 -->
+    <script>
+        if (window.navigator.userAgent.indexOf("Edge") > -1) {
+            console.log("Removing native Edge fetch in favor of swagger-ui's polyfill")
+            window.fetch = undefined;
+        }
+    </script>
+
+    <script src="./swagger-ui-bundle.js"></script>
+    <script src="./swagger-ui-standalone-preset.js"></script>
+    <script>
+        window.onload = function () {
+            var configObject = JSON.parse('{"urls":[{"url":"../swagger/v1/swagger.json","name":"V1"}],"deepLinking":false,"displayOperationId":false,"defaultModelsExpandDepth":0,"defaultModelExpandDepth":1,"defaultModelRendering":"example","displayRequestDuration":false,"docExpansion":"list","showExtensions":false,"showCommonExtensions":false,"supportedSubmitMethods":["get","put","post","delete","options","head","patch","trace"]}');
+            var oauthConfigObject = JSON.parse('{"scopeSeparator":" ","useBasicAuthenticationWithAccessCodeGrant":false,"usePkceWithAuthorizationCodeGrant":false}');
+
+            // Workaround for https://github.com/swagger-api/swagger-ui/issues/5945
+            configObject.urls.forEach(function (item) {
+                if (item.url.startsWith("http") || item.url.startsWith("/")) return;
+                item.url = window.location.href.replace("index.html", item.url).split('#')[0];
+            });
+
+            // If validatorUrl is not explicitly provided, disable the feature by setting to null
+            if (!configObject.hasOwnProperty("validatorUrl"))
+                configObject.validatorUrl = null
+
+            // If oauth2RedirectUrl isn't specified, use the built-in default
+            if (!configObject.hasOwnProperty("oauth2RedirectUrl"))
+                configObject.oauth2RedirectUrl = window.location.href.replace("index.html", "oauth2-redirect.html").split('#')[0];
+
+            // Apply mandatory parameters
+            configObject.dom_id = "#swagger-ui";
+            configObject.presets = [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset];
+            configObject.layout = "StandaloneLayout";
+
+            // Begin Swagger UI call region
+
+            const ui = SwaggerUIBundle(configObject);
+
+            ui.initOAuth(oauthConfigObject);
+
+            // End Swagger UI call region
+
+            window.ui = ui
+        }
+    </script>
+</body>
+</html>
+ "0001-01-01T00:00:00.0000000+00:00"
+2021-10-10 12:13:57 [INF]  Request finished in 189.3178ms 200 text/html;charset=utf-8
+2021-10-10 12:13:57 [INF]  Request starting HTTP/2.0 GET https://localhost:44340/swagger/v1/swagger.json  
+2021-10-10 12:13:57 [DBG]  Request: https {"Value":"localhost:44340","HasValue":true,"Host":"localhost","Port":44340,"$type":"HostString"} {"Value":"/swagger/v1/swagger.json","HasValue":true,"$type":"PathString"} {"Value":"","HasValue":false,"$type":"QueryString"}  "0001-01-01T00:00:00.0000000+00:00"
+2021-10-10 12:13:57 [DBG]  Response: https {"Value":"localhost:44340","HasValue":true,"Host":"localhost","Port":44340,"$type":"HostString"} {"Value":"/swagger/v1/swagger.json","HasValue":true,"$type":"PathString"} {"Value":"","HasValue":false,"$type":"QueryString"} 200 {
+  "swagger": "2.0",
+  "info": {
+    "title": "Meli.Quasar.Api",
+    "version": "1.0"
+  },
+  "paths": {
+    "/topsecret": {
+      "post": {
+        "tags": [
+          "Communication"
+        ],
+        "summary": "Calcula las coordenadas del emisor del mensaje y determina el mensaje enviado",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/problem+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Meli.Quasar.Common.Dtos.Communication.PostTopSecretRequestDto"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Meli.Quasar.Api.Exceptions.ErrorDetailModel"
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "schema": {
+              "$ref": "#/definitions/Meli.Quasar.Api.Exceptions.ErrorDetailModel"
+            }
+          },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Meli.Quasar.Common.Dtos.Communication.TopSecretResponseDto"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/Meli.Quasar.Api.Exceptions.ErrorDetailModel"
+            }
+          }
+        }
+      }
+    },
+    "/topsecret_split/{satellite_name}": {
+      "post": {
+        "tags": [
+          "Split Communication"
+        ],
+        "summary": "Almacena los datos de distancia y mensaje del satelite para poder usarlos luego",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/problem+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "satellite_name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Meli.Quasar.Common.Dtos.Communication.PostSatelliteSplitRequestDto"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Meli.Quasar.Api.Exceptions.ErrorDetailModel"
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "schema": {
+              "$ref": "#/definitions/Meli.Quasar.Api.Exceptions.ErrorDetailModel"
+            }
+          },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Meli.Quasar.Common.Dtos.Communication.TopSecretResponseDto"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Split Communication"
+        ],
+        "summary": "Elimina un satelite almacenado.",
+        "produces": [
+          "application/json",
+          "application/problem+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "satellite_name",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Meli.Quasar.Api.Exceptions.ErrorDetailModel"
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "schema": {
+              "$ref": "#/definitions/Meli.Quasar.Api.Exceptions.ErrorDetailModel"
+            }
+          },
+          "204": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/topsecret_split": {
+      "get": {
+        "tags": [
+          "Split Communication"
+        ],
+        "summary": "Retorna la posicion y el mensaje si es posible determinarlos con los datos almacenados",
+        "produces": [
+          "application/json",
+          "application/problem+json"
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Meli.Quasar.Api.Exceptions.ErrorDetailModel"
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "schema": {
+              "$ref": "#/definitions/Meli.Quasar.Api.Exceptions.ErrorDetailModel"
+            }
+          },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Meli.Quasar.Common.Dtos.Communication.TopSecretResponseDto"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/Meli.Quasar.Api.Exceptions.ErrorDetailModel"
+            }
+          }
+        }
+      }
+    },
+    "/satellites_slipts": {
+      "get": {
+        "tags": [
+          "Split Communication"
+        ],
+        "summary": "Retorna la lista de los datos almacenados",
+        "produces": [
+          "application/json",
+          "application/problem+json"
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Meli.Quasar.Api.Exceptions.ErrorDetailModel"
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "schema": {
+              "$ref": "#/definitions/Meli.Quasar.Api.Exceptions.ErrorDetailModel"
+            }
+          },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Meli.Quasar.Common.Dtos.Communication.SatelliteSplitDto"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Meli.Quasar.Api.Exceptions.Error": {
+      "description": "Error",
+      "type": "object",
+      "properties": {
+        "titulo": {
+          "description": "Titulo",
+          "type": "string"
+        },
+        "origen": {
+          "description": "Origen",
+          "type": "string"
+        },
+        "detalle": {
+          "description": "Detalle",
+          "type": "string"
+        },
+        "spvtrack_id": {
+          "description": "TrackId",
+          "type": "string"
+        }
+      }
+    },
+    "Meli.Quasar.Api.Exceptions.ErrorDetailModel": {
+      "description": "Detalle de error model",
+      "type": "object",
+      "properties": {
+        "estado": {
+          "description": "Descripción del código de error Http",
+          "type": "string"
+        },
+        "codigo": {
+          "format": "int32",
+          "description": "Codigo HTTP",
+          "type": "integer"
+        },
+        "detalle": {
+          "description": "Detalle del error",
+          "type": "string"
+        },
+        "errores": {
+          "description": "Lista de errores",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Meli.Quasar.Api.Exceptions.Error"
+          }
+        }
+      }
+    },
+    "Meli.Quasar.Common.Dtos.Communication.PointDto": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "format": "double",
+          "type": "number"
+        },
+        "y": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "Meli.Quasar.Common.Dtos.Communication.PostSatelliteSplitRequestDto": {
+      "type": "object",
+      "properties": {
+        "distance": {
+          "format": "double",
+          "type": "number"
+        },
+        "message": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Meli.Quasar.Common.Dtos.Communication.PostTopSecretRequestDto": {
+      "type": "object",
+      "properties": {
+        "satellites": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Meli.Quasar.Common.Dtos.Communication.SatalliteDto"
+          }
+        }
+      }
+    },
+    "Meli.Quasar.Common.Dtos.Communication.SatalliteDto": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "distance": {
+          "format": "double",
+          "type": "number"
+        },
+        "message": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Meli.Quasar.Common.Dtos.Communication.SatelliteSplitDto": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "distance": {
+          "format": "double",
+          "type": "number"
+        },
+        "message": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Meli.Quasar.Common.Dtos.Communication.TopSecretResponseDto": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "position": {
+          "$ref": "#/definitions/Meli.Quasar.Common.Dtos.Communication.PointDto"
+        }
+      }
+    }
+  }
+} "0001-01-01T00:00:00.0000000+00:00"
+2021-10-10 12:13:57 [INF]  Request finished in 328.7612ms 200 application/json;charset=utf-8
