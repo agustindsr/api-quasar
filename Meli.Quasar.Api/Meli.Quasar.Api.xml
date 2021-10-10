@@ -1,0 +1,327 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Meli.Quasar.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Meli.Quasar.Api.AutoMapper.CommunicationProfile">
+            <summary>
+            Used to register classes to map
+            </summary>
+        </member>
+        <member name="M:Meli.Quasar.Api.AutoMapper.CommunicationProfile.#ctor">
+            <summary>
+            Contructor
+            </summary>
+        </member>
+        <member name="T:Meli.Quasar.Api.Controllers.CommunicationController">
+            <summary>
+            CommunicationController
+            </summary>
+        </member>
+        <member name="M:Meli.Quasar.Api.Controllers.CommunicationController.#ctor(Meli.Quasar.Service.Interface.ICommunicationService)">
+            <summary>
+            CommunicationController
+            </summary>
+            <param name="communicationService"></param>
+        </member>
+        <member name="M:Meli.Quasar.Api.Controllers.CommunicationController.TopSecret(Meli.Quasar.Common.Dtos.Communication.PostTopSecretRequestDto)">
+            <summary>
+            Communication top secret
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Meli.Quasar.Api.Controllers.CommunicationController.AddOrUpdateSatelliteSplit(System.String,Meli.Quasar.Common.Dtos.Communication.PostSatelliteSplitRequestDto)">
+            <summary>
+            Communication top secret
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Meli.Quasar.Api.Controllers.CommunicationController.DeleteSatelliteSplit(System.String)">
+            <summary>
+            Communication top secret
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Meli.Quasar.Api.Controllers.CommunicationController.TopSecretSplit">
+            <summary>
+            Communication top secret
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Meli.Quasar.Api.Controllers.CommunicationController.GetSatellitesSlipts">
+            <summary>
+            Communication top secret
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Meli.Quasar.Api.Exceptions.ErrorDetailModel">
+            <summary>
+            Detalle de error model
+            </summary>
+        </member>
+        <member name="M:Meli.Quasar.Api.Exceptions.ErrorDetailModel.#ctor">
+            <summary>
+            ErrorDetailModel
+            </summary>
+        </member>
+        <member name="P:Meli.Quasar.Api.Exceptions.ErrorDetailModel.State">
+            <summary>
+            Descripción del código de error Http
+            </summary>
+        </member>
+        <member name="P:Meli.Quasar.Api.Exceptions.ErrorDetailModel.Code">
+            <summary>
+            Codigo HTTP
+            </summary>
+        </member>
+        <member name="P:Meli.Quasar.Api.Exceptions.ErrorDetailModel.Detail">
+            <summary>
+            Detalle del error
+            </summary>
+        </member>
+        <member name="P:Meli.Quasar.Api.Exceptions.ErrorDetailModel.Errors">
+            <summary>
+            Lista de errores
+            </summary>
+        </member>
+        <member name="T:Meli.Quasar.Api.Exceptions.Error">
+            <summary>
+            Error
+            </summary>
+        </member>
+        <member name="P:Meli.Quasar.Api.Exceptions.Error.Title">
+            <summary>
+            Titulo
+            </summary>
+        </member>
+        <member name="P:Meli.Quasar.Api.Exceptions.Error.Source">
+            <summary>
+            Origen
+            </summary>
+        </member>
+        <member name="P:Meli.Quasar.Api.Exceptions.Error.Detail">
+            <summary>
+            Detalle
+            </summary>
+        </member>
+        <member name="P:Meli.Quasar.Api.Exceptions.Error.SpvTrackId">
+            <summary>
+            TrackId
+            </summary>
+        </member>
+        <member name="T:Meli.Quasar.Api.Exceptions.IInvalidResponseBuilder">
+            <summary>
+            IInvalidResponseBuilder
+            </summary>
+        </member>
+        <member name="M:Meli.Quasar.Api.Exceptions.IInvalidResponseBuilder.Build(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            Build
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Meli.Quasar.Api.Exceptions.InvalidResponseBuilder">
+            <summary>
+            InvalidResponseBuilder
+            </summary>
+        </member>
+        <member name="M:Meli.Quasar.Api.Exceptions.InvalidResponseBuilder.Build(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            Build
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Meli.Quasar.Api.Filters.ExceptionsAttribute">
+            <summary>
+            ExceptionsAttribute
+            </summary>
+        </member>
+        <member name="M:Meli.Quasar.Api.Filters.ExceptionsAttribute.OnException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            OnException
+            </summary>
+            <param name="context"></param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="T:Meli.Quasar.Api.Filters.ModelStateValidateAttribute">
+            <summary>
+            ModelStateValidateAttribute
+            </summary>
+        </member>
+        <member name="M:Meli.Quasar.Api.Filters.ModelStateValidateAttribute.#ctor(Meli.Quasar.Api.Exceptions.IInvalidResponseBuilder)">
+            <summary>
+            ModelStateValidateAttribute
+            </summary>
+            <param name="invalidResponseBuilder"></param>
+        </member>
+        <member name="M:Meli.Quasar.Api.Filters.ModelStateValidateAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            OnActionExecuting
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:Meli.Quasar.Api.Middleware.RequestResponseLoggingMiddleware">
+            <summary>
+            RequestResponseLoggingMiddleware
+            </summary>
+        </member>
+        <member name="M:Meli.Quasar.Api.Middleware.RequestResponseLoggingMiddleware.#ctor(Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            RequestResponseLoggingMiddleware
+            </summary>
+            <param name="loggerFactory"></param>
+        </member>
+        <member name="M:Meli.Quasar.Api.Middleware.RequestResponseLoggingMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext,Microsoft.AspNetCore.Http.RequestDelegate)">
+            <summary>
+            InvokeAsync
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Meli.Quasar.Api.Middleware.RequestResponseLoggingMiddlewareExtensions">
+            <summary>
+            RequestResponseLoggingMiddlewareExtensions
+            </summary>
+        </member>
+        <member name="M:Meli.Quasar.Api.Middleware.RequestResponseLoggingMiddlewareExtensions.UseRequestResponseLogging(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            UseRequestResponseLogging
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Meli.Quasar.Api.Program">
+            <summary>
+            Program
+            </summary>
+        </member>
+        <member name="P:Meli.Quasar.Api.Program.Configuration">
+            <summary>
+            Configuration
+            </summary>
+        </member>
+        <member name="M:Meli.Quasar.Api.Program.Main(System.String[])">
+            <summary>
+            Main
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Meli.Quasar.Api.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            CreateHostBuilder
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Meli.Quasar.Api.Startup">
+            <summary>
+            Startup
+            </summary>
+        </member>
+        <member name="P:Meli.Quasar.Api.Startup.Configuration">
+            <summary>
+            Configuration
+            </summary>
+        </member>
+        <member name="M:Meli.Quasar.Api.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Startup
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:Meli.Quasar.Api.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Meli.Quasar.Api.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+            <param name="provider"></param>
+        </member>
+        <member name="T:Meli.Quasar.Api.Swagger.SwaggerGenSettings">
+            <summary>
+            SwaggerDefaultValues
+            </summary>
+        </member>
+        <member name="M:Meli.Quasar.Api.Swagger.SwaggerGenSettings.AddSwaggerGenForService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            AddSwaggerGen
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="T:Meli.Quasar.Api.Swagger.SwaggerOperationFilter">
+            <summary>
+            SwaggerOperationFilter
+            </summary>
+        </member>
+        <member name="M:Meli.Quasar.Api.Swagger.SwaggerOperationFilter.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <summary>
+            Applies the filter to the specified operation using the given context.
+            </summary>
+            <param name="operation">The operation to apply the filter to.</param>
+            <param name="context">The current operation filter context.</param>
+        </member>
+        <member name="T:Meli.Quasar.Api.Swagger.SwaggerUiSettings">
+            <summary>
+            SwaggerUiSettings Class
+            </summary>
+        </member>
+        <member name="M:Meli.Quasar.Api.Swagger.SwaggerUiSettings.SwaggerOptionUi(Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider,Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIOptions)">
+            <summary>
+            Configuracion de la UI de swagger
+            </summary>
+            <param name="provider"></param>
+            <param name="options"></param>
+        </member>
+        <member name="T:Meli.Quasar.Api.ViewModels.SampleController.CreateSample.Input.SampleModel">
+            <summary>
+            Sample Model
+            </summary>
+        </member>
+        <member name="P:Meli.Quasar.Api.ViewModels.SampleController.CreateSample.Input.SampleModel.Description">
+            <summary>
+            Descripción
+            </summary>
+        </member>
+        <member name="T:Meli.Quasar.Api.ViewModels.SampleController.CreateSample.Output.SampleModelResponse">
+            <summary>
+            Sample Model Response
+            </summary>
+        </member>
+        <member name="P:Meli.Quasar.Api.ViewModels.SampleController.CreateSample.Output.SampleModelResponse.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Meli.Quasar.Api.ViewModels.SampleController.CreateSample.Output.SampleModelResponse.Description">
+            <summary>
+            Descripción
+            </summary>
+        </member>
+        <member name="T:Meli.Quasar.Api.ViewModels.SampleController.UpdateSample.Input.UpdateSampleModel">
+            <summary>
+            Sample Model
+            </summary>
+        </member>
+        <member name="P:Meli.Quasar.Api.ViewModels.SampleController.UpdateSample.Input.UpdateSampleModel.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Meli.Quasar.Api.ViewModels.SampleController.UpdateSample.Input.UpdateSampleModel.Description">
+            <summary>
+            Descripción
+            </summary>
+        </member>
+    </members>
+</doc>

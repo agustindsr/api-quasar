@@ -1,0 +1,5 @@
+dotnet restore "Spv.Sample.Api/Spv.Sample.Api.csproj"
+dotnet build "Spv.Sample.Api/Spv.Sample.Api.csproj" -c Release
+dotnet test Spv.Sample.Test.Unit/Spv.Sample.Test.Unit.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover --test-adapter-path:. --logger:"junit;LogFilePath=..\test_results\spv-test-unit-test-result.xml;MethodFormat=Class;FailureBodyFormat=Verbose"
+dotnet test Spv.Sample.Test.Integration/Spv.Sample.Test.Integration.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover --test-adapter-path:. --logger:"junit;LogFilePath=..\test_results\spv-test-unit-integration-result.xml;MethodFormat=Class;FailureBodyFormat=Verbose"
+dotnet test Spv.Sample.ApiConnect/Spv.Sample.ApiConnect.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover --test-adapter-path:. --logger:"junit;LogFilePath=..\test_results\spv-sample-apiconnect-test-result.xml;MethodFormat=Class;FailureBodyFormat=Verbose"

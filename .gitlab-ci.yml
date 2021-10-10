@@ -1,0 +1,62 @@
+variables:
+  APP_NAME: ms-sample
+  REPO_NAME: api-sample
+  BUILD_GROUP: snapshot
+  RESOURCE_PATH: .
+  GROUP_ID: ar/com/supervielle
+  REPO_GENERIC: ${REPO_NAME}-generic-local
+  REPO_DOCKER: $REPO_NAME.artifactory.gscorp.ad
+  REPO_SPV: docker-spv.artifactory.gscorp.ad
+  DOCKERFILE: .
+  DOCKER_DRIVER: overlay2
+  DOCKER_HOST: tcp://localhost:2375
+  DOCKER_TLS_CERTDIR: ''
+  SONAR_HOST_URL: "https://sonarqube.gscorp.ad"
+
+before_script: 
+    - export GRADLE_USER_HOME=`pwd`/.gradle
+    - export BUILD_VERSION=$(cat VERSION)
+
+stages:
+  - CodeQuality
+  - Build
+  - Package
+  - Deploy
+  - Release
+  
+Code Quality NetCore:
+  image: docker-spv.artifactory.gscorp.ad/sonar-netcore:3.1
+  stage: CodeQuality
+  script:
+    - >
+      if [ $APP_NAME_SONAR != null ]; then
+        dotnet sonarscanner begin /d:sonar.host.url=${SONAR_HOST_URL} /d:sonar.login=${SONAR_TOKEN} /k:${APP_NAME_SONAR} /d:sonar.cs.opencover.reportsPaths=Spv.Test.Unit/coverage.opencover.xml,Spv.Test.Integration/coverage.opencover.xml,Spv.Sample.Apiconnect/coverage.opencover.xml
+      else
+        dotnet sonarscanner begin /d:sonar.host.url=${SONAR_HOST_URL} /d:sonar.login=${SONAR_TOKEN} /k:${APP_NAME}
+      fi
+    - chmod +x build.sh
+    - ./build.sh
+    - dotnet sonarscanner end /d:sonar.login=${SONAR_TOKEN}
+  cache:
+    paths:
+      - .nuget
+  rules:
+    - if: '$LANG == "netcore"'
+  allow_failure: true
+  
+include:
+  - project: 'gitlab-ci-templates/kubernetes'
+    ref: 'master'
+    file: '.build.yml'
+  - project: 'gitlab-ci-templates/kubernetes'
+    ref: 'master'
+    file: '.package.yml'
+  - project: 'gitlab-ci-templates/kubernetes'
+    ref: 'master'
+    file: '.deploy.yml'
+  - project: 'gitlab-ci-templates/kubernetes'
+    ref: 'master'
+    file: '.codequality.yml'
+  - project: 'gitlab-ci-templates/kubernetes'
+    ref: 'master'
+    file: '.release.yml'

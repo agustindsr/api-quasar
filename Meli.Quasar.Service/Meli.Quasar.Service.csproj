@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.7" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Meli.Quasar.Common\Meli.Quasar.Common.csproj" />
+    <ProjectReference Include="..\Meli.Quasar.DataAccess.Interface\Meli.Quasar.DataAccess.Interface.csproj" />
+    <ProjectReference Include="..\Meli.Quasar.Service.Interface\Meli.Quasar.Service.Interface.csproj" />
+  </ItemGroup>
+
+</Project>
