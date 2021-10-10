@@ -50,8 +50,8 @@ namespace Meli.Quasar.Test.Unit
             var position = Sut.GetLocation(point1, point2, point3);
 
             //ASSERT
-            position.X.Should().Be(-487.58584998651804);
-            position.Y.Should().Be(1574.99453560333);
+            position.X.Should().Be(-487.59);
+            position.Y.Should().Be(1574.99);
         }
 
 

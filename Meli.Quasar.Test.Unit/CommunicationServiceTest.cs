@@ -58,7 +58,7 @@ namespace Meli.Quasar.Test.Unit
          {
             //ARRANGE
             ILocationServiceMock.Setup(x => x.GetLocation(It.IsAny<PointDistance>(), It.IsAny<PointDistance>(), It.IsAny<PointDistance>()))
-                .Returns(new PointDto(-487.58584998651804, 1574.99453560333));
+                .Returns(new PointDto(-487.59, 1574.99));
 
             IMessageServiceMock.Setup(x => x.GetMessage(It.IsAny<List<List<string>>>())).Returns("este es un mensaje secreto");
 
@@ -72,8 +72,8 @@ namespace Meli.Quasar.Test.Unit
            var response = Sut.TopSecret(dtoResquest);
 
             response.Message.Should().Be("este es un mensaje secreto");
-            response.Position.X.Should().Be(-487.58584998651804);
-            response.Position.Y.Should().Be(1574.99453560333);
+            response.Position.X.Should().Be(-487.59);
+            response.Position.Y.Should().Be(1574.99);
         }
 
         [Fact]
@@ -81,7 +81,7 @@ namespace Meli.Quasar.Test.Unit
         {
             //ARRANGE
             ILocationServiceMock.Setup(x => x.GetLocation(It.IsAny<PointDistance>(), It.IsAny<PointDistance>(), It.IsAny<PointDistance>()))
-               .Returns(new PointDto(-487.58584998651804, 1574.99453560333));
+               .Returns(new PointDto(-487.59, 1574.99));
 
             IMessageServiceMock.Setup(x => x.GetMessage(It.IsAny<List<List<string>>>())).Throws(new CalculateMessageException());
 
@@ -134,7 +134,7 @@ namespace Meli.Quasar.Test.Unit
             });
 
             ILocationServiceMock.Setup(x => x.GetLocation(It.IsAny<PointDistance>(), It.IsAny<PointDistance>(), It.IsAny<PointDistance>()))
-                .Returns(new PointDto(-487.58584998651804, 1574.99453560333));
+                .Returns(new PointDto(-487.59, 1574.99));
 
             IMessageServiceMock.Setup(x => x.GetMessage(It.IsAny<List<List<string>>>())).Returns("este es un mensaje secreto");
 
@@ -150,8 +150,8 @@ namespace Meli.Quasar.Test.Unit
 
             //ASSERT
             response.Message.Should().Be("este es un mensaje secreto");
-            response.Position.X.Should().Be(-487.58584998651804);
-            response.Position.Y.Should().Be(1574.99453560333);
+            response.Position.X.Should().Be(-487.59);
+            response.Position.Y.Should().Be(1574.99);
         }
 
         [Fact]

@@ -64,7 +64,7 @@ namespace Meli.Quasar.Service
                 //{
                 //    if (i[0] < -90 || i[0] > 90 || i[1] < -180 || i[1] > 180) { i = null; }
                 //}
-                return new Point(i[0], i[1]);
+                return new Point(Math.Round(i[0], 2), Math.Round(i[1],2));
             }
             catch (Exception)
             {

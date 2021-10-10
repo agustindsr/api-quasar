@@ -59,8 +59,8 @@ namespace Meli.Quasar.Test.Integration
             response.StatusCode.Should().Be(StatusCodes.Status200OK);
             postTopSecretResponseDto.Should().NotBeNull();
             postTopSecretResponseDto.Message.Should().Be("este es un mensaje secreto");
-            postTopSecretResponseDto.Position.X.Should().Be(-487.58584998651804);
-            postTopSecretResponseDto.Position.Y.Should().Be(1574.99453560333);
+            postTopSecretResponseDto.Position.X.Should().Be(-487.59);
+            postTopSecretResponseDto.Position.Y.Should().Be(1574.99);
 
             response.Should().NotBeNull();
         }
@@ -133,8 +133,8 @@ namespace Meli.Quasar.Test.Integration
 
             postTopSecretResponseDto.Should().NotBeNull();
             postTopSecretResponseDto.Message.Should().Be("este es un mensaje secreto");
-            postTopSecretResponseDto.Position.X.Should().Be(-487.58584998651725);
-            postTopSecretResponseDto.Position.Y.Should().Be(1574.9945356033286);
+            postTopSecretResponseDto.Position.X.Should().Be(-487.59);
+            postTopSecretResponseDto.Position.Y.Should().Be(1574.99);
         }
 
         [Fact]
