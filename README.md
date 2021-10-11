@@ -1,12 +1,12 @@
-# api-quasar
+# API Quasar
 
 ## Tecnologías utilizadas
 El proyecto está construído con el framework Asp Net Core 3.1.
 
 ## Arquitectura
 
-- _Controller_: Todos las clases que reciben peticiones HTTP a los end-point defindos.
-- _Services_: Lógica necesaria para calcular la posición final de la nave y el mensage recibido.
+- _Controller_: Clases para gestionar las solicitudes HTTP.
+- _Services_: Lógica necesaria para calcular la posición final de la nave y el mensaje recibido.
 - _Services.Interfaces_: Todas las interfaces para los servicios.
 - _Repository_: Capa de acceso a datos.
 - _DataAccess.Interfaces_: Todas las interfaces del acceso a datos, en este se incluyen las interfaces de los repositorios.
