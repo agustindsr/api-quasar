@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using Meli.Quasar.Common.Dtos.Communication;
 using Meli.Quasar.Service.Interface;
 using Swashbuckle.AspNetCore.Annotations;
-using Meli.Quasar.Domain.Entities;
 using System.Collections.Generic;
 using Meli.Quasar.Api.Exceptions;
 using Meli.Quasar.Common.Attributes;
@@ -40,7 +39,7 @@ namespace Meli.Quasar.Api.Controllers
         [ProducesResponseType(typeof(ErrorDetailModel), StatusCodes.Status404NotFound)]
         [Consumes(MediaTypeNames.Application.Json)]
         [Produces(MediaTypeNames.Application.Json, "application/problem+json")]
-        public ActionResult<TopSecretResponseDto> TopSecret([Required][FromBody] PostTopSecretRequestDto topSecretRequestDto)
+        public ActionResult<TopSecretResponseDto> TopSecret([Required][FromBody] TopSecretRequestDto topSecretRequestDto)
         {
 
             var response = _communicationService.TopSecret(topSecretRequestDto);
@@ -53,17 +52,16 @@ namespace Meli.Quasar.Api.Controllers
         /// <returns></returns>
         [HttpPost("topsecret_split/{satellite_name}")]
         [SwaggerOperation(Summary = "Almacena los datos de distancia y mensaje del satelite para poder usarlos luego", Tags = new[] { "Split Communication" })]
-        [ProducesResponseType(typeof(TopSecretResponseDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(SatelliteSplitRequestDto), StatusCodes.Status201Created)]
         [Consumes(MediaTypeNames.Application.Json)]
         [Produces(MediaTypeNames.Application.Json, "application/problem+json")]
-        public ActionResult<TopSecretResponseDto> AddOrUpdateSatelliteSplit([SatelliteName][FromRoute(Name = "satellite_name")] string satelliteName, 
-            [Required][FromBody] PostSatelliteSplitRequestDto postSatelliteSplitRequestDto)
+        public ActionResult<SatelliteSplitResponseDto> AddOrUpdateSatelliteSplit([SatelliteName][FromRoute(Name = "satellite_name")] string satelliteName, 
+            [Required][FromBody] SatelliteSplitRequestDto postSatelliteSplitRequestDto)
         {
-
-            _communicationService.AddOrUpdateSatelliteSplit(satelliteName, postSatelliteSplitRequestDto);
-            Response.StatusCode = StatusCodes.Status201Created;
-            return Ok();
+           var response = _communicationService.AddOrUpdateSatelliteSplit(satelliteName, postSatelliteSplitRequestDto);
+            return Created("", response);
         }
+
 
         /// <summary>
         /// Communication top secret
@@ -72,9 +70,10 @@ namespace Meli.Quasar.Api.Controllers
         [HttpDelete("topsecret_split/{satellite_name}")]
         [SwaggerOperation(Summary = "Elimina un satelite almacenado.", Tags = new[] { "Split Communication" })]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(typeof(ErrorDetailModel), StatusCodes.Status409Conflict)]
         [Consumes(MediaTypeNames.Application.Json)]
         [Produces(MediaTypeNames.Application.Json, "application/problem+json")]
-        public ActionResult<TopSecretResponseDto> DeleteSatelliteSplit([Required][SatelliteName][FromRoute(Name = "satellite_name")] string satelliteName)
+        public ActionResult DeleteSatelliteSplit([Required][SatelliteName][FromRoute(Name = "satellite_name")] string satelliteName)
         {
             _communicationService.DeleteSatelliteSplits(satelliteName);
             return NoContent();
@@ -103,10 +102,10 @@ namespace Meli.Quasar.Api.Controllers
         /// <returns></returns>
         [HttpGet("satellites_slipts")]
         [SwaggerOperation(Summary = "Retorna la lista de los datos almacenados", Tags = new[] { "Split Communication" })]
-        [ProducesResponseType(typeof(List<SatelliteSplitDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<SatelliteSplitResponseDto>), StatusCodes.Status200OK)]
         [Consumes(MediaTypeNames.Application.Json)]
         [Produces(MediaTypeNames.Application.Json, "application/problem+json")]
-        public ActionResult<List<SatelliteSplitDto>> GetSatellitesSlipts()
+        public ActionResult<List<SatelliteSplitResponseDto>> GetSatellitesSlipts()
         {
             var response = _communicationService.GetSatellitesSplits();
 

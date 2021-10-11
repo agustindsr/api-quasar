@@ -60,6 +60,13 @@ namespace Meli.Quasar.Api.Filters
                         return data.Code;
                     }
 
+                case nameof(DontFoundSatelliteSplitException):
+                    {
+                        var data = (DontFoundSatelliteSplitException)context.Exception;
+
+                        return data.Code;
+                    }
+
                 default:
                     return (int)HttpStatusCode.InternalServerError;
             }

@@ -9,8 +9,12 @@ namespace Meli.Quasar.DataAccess.Interface
 
         List<SatelliteSplit> GetSatellitesSplit();
 
-        void AddOrUpdateSatelliteSplit(SatelliteSplit satelliteDistance);
+        SatelliteSplit AddSatelliteSplit(SatelliteSplit satelliteDistance);
+
+        SatelliteSplit UpdateSatelliteSplit(SatelliteSplit satelliteSplit);
 
         void DeleteSatelliteSplits(string name);
+
+        bool ExistSatelliteSplit(string name);
     }
 }

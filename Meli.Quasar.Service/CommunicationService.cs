@@ -9,6 +9,7 @@ using Meli.Quasar.Service.Interface;
 using System.Linq;
 using Meli.Quasar.Domain.Entities;
 using Newtonsoft.Json;
+using Meli.Quasar.Domain.Exceptions;
 
 namespace Meli.Quasar.Service
 {
@@ -32,8 +33,7 @@ namespace Meli.Quasar.Service
         }
 
 
-        #region Public methods
-        public TopSecretResponseDto TopSecret(PostTopSecretRequestDto postTopSecretResquestDto)
+        public TopSecretResponseDto TopSecret(TopSecretRequestDto postTopSecretResquestDto)
         {
             try
             {
@@ -52,8 +52,13 @@ namespace Meli.Quasar.Service
 
                 PointDto position = _locationService.GetLocation(points[0], points[1], points[2]);
                 string message = _messageService.GetMessage(postTopSecretResquestDto.Satellites.Select(x => x.Message).ToList());
+                
+                var response = new TopSecretResponseDto(position, message);
 
-                return new TopSecretResponseDto(position, message);
+                _logger.LogInformation(ServiceEvents.ReponseTopSecret, ServiceEvents.ReponseTopSecret.Name,
+                                           JsonConvert.SerializeObject(response));
+
+                return response;
             }
             catch (Exception ex)
             {
@@ -82,7 +87,13 @@ namespace Meli.Quasar.Service
                 PointDto position = _locationService.GetLocation(points[0], points[1], points[2]);
                 string message = _messageService.GetMessage(satellitesSplits.Select(x => x.Message).ToList());
 
-                return new TopSecretResponseDto(position, message);
+
+                var response = new TopSecretResponseDto(position, message);
+
+                _logger.LogInformation(ServiceEvents.ReponseTopSecretSplit, ServiceEvents.ReponseTopSecretSplit.Name,
+                                           JsonConvert.SerializeObject(response));
+
+                return response;
             }
             catch (Exception ex)
             {
@@ -92,29 +103,49 @@ namespace Meli.Quasar.Service
             }
         }
 
-        public List<SatelliteSplitDto> GetSatellitesSplits()
+        public List<SatelliteSplitResponseDto> GetSatellitesSplits()
         {
             _logger.LogInformation(ServiceEvents.CallingGetSatellitesSplits, ServiceEvents.CallingGetSatellitesSplits.Name);
 
-            return _mapper.Map<List<SatelliteSplitDto>>(_communicationRepository.GetSatellitesSplit());
+            var response = _mapper.Map<List<SatelliteSplitResponseDto>>(_communicationRepository.GetSatellitesSplit());
+
+            _logger.LogInformation(ServiceEvents.ReponseGetSatellitesSplits, ServiceEvents.ReponseGetSatellitesSplits.Name,
+                                          JsonConvert.SerializeObject(response));
+            return response;
         }
 
         public void DeleteSatelliteSplits(string name)
         {
             _logger.LogInformation(ServiceEvents.CallingDeleteSatelliteSplits, ServiceEvents.CallingDeleteSatelliteSplits.Name);
 
+            if (!_communicationRepository.ExistSatelliteSplit(name)) {
+                throw new DontFoundSatelliteSplitException(name);
+            }
+
             _communicationRepository.DeleteSatelliteSplits(name);
         }
 
-        public void AddOrUpdateSatelliteSplit(string name, PostSatelliteSplitRequestDto postSatelliteSplitRequestDto)
+        public SatelliteSplitResponseDto AddOrUpdateSatelliteSplit(string name, SatelliteSplitRequestDto postSatelliteSplitRequestDto)
         {
             _logger.LogInformation(ServiceEvents.CallingAddOrUpdateSatelliteSplit, ServiceEvents.CallingAddOrUpdateSatelliteSplit.Name);
 
             var sateliteSplit = new SatelliteSplit(name, postSatelliteSplitRequestDto.Distance, postSatelliteSplitRequestDto.Message);
 
-            _communicationRepository.AddOrUpdateSatelliteSplit(sateliteSplit);
-        }
-        #endregion
+            if (_communicationRepository.ExistSatelliteSplit(name))
+            {
+                sateliteSplit = _communicationRepository.UpdateSatelliteSplit(sateliteSplit);
+            }
+            else
+            {
+                sateliteSplit = _communicationRepository.AddSatelliteSplit(sateliteSplit);
+            }
 
+            var response = _mapper.Map<SatelliteSplitResponseDto>(sateliteSplit);
+
+            _logger.LogInformation(ServiceEvents.ReponseAddOrUpdateSatelliteSplit, ServiceEvents.ReponseAddOrUpdateSatelliteSplit.Name,
+                                          JsonConvert.SerializeObject(response));
+
+            return response;
+        }
     }
 }

@@ -26,32 +26,35 @@ namespace Meli.Quasar.Repository
             return SatellitesSplit;
         }
 
-        public void DeleteSatelliteSplits(string name) {
+        public void DeleteSatelliteSplits(string name)
+        {
             if (ExistSatelliteSplit(name))
             {
                 SatellitesSplit.Remove(SatellitesSplit.Find(x => x.Name == name));
             }
-         }
-
-        public void AddOrUpdateSatelliteSplit(SatelliteSplit satelliteSplit)
-        {
-            if (ExistSatelliteSplit(satelliteSplit.Name))
-            {
-                var satellite = GetSatelliteByName(satelliteSplit.Name);
-                satellite.Distance = satelliteSplit.Distance;
-                satellite.Message = satelliteSplit.Message;
-            }
-            else {
-                SatellitesSplit.Add(new SatelliteSplit(satelliteSplit.Name, satelliteSplit.Distance, satelliteSplit.Message));
-            }
         }
 
-        private SatelliteSplit GetSatelliteByName(string name)
+        public SatelliteSplit AddSatelliteSplit(SatelliteSplit satelliteSplit)
+        {
+            var satelliteSplitCreated = new SatelliteSplit(satelliteSplit.Name, satelliteSplit.Distance, satelliteSplit.Message);
+            SatellitesSplit.Add(satelliteSplitCreated);
+            return satelliteSplitCreated;
+        }
+
+        public SatelliteSplit UpdateSatelliteSplit(SatelliteSplit satelliteSplit)
+        {
+            var satellite = GetSatelliteSplitByName(satelliteSplit.Name);
+            satellite = satelliteSplit;
+            return satellite;
+        }
+
+        public bool ExistSatelliteSplit(string name)
+        {
+            return SatellitesSplit.Any(x => x.Name == name);
+        }
+        private SatelliteSplit GetSatelliteSplitByName(string name)
         {
             return SatellitesSplit.Find(x => x.Name == name);
-        }
-        private bool ExistSatelliteSplit(string name) {
-            return (SatellitesSplit.Any(x => x.Name == name));
         }
     }
 }

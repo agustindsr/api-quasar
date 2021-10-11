@@ -1,4 +1,3 @@
-using Correlate.AspNetCore;
 using Meli.Quasar.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -119,10 +118,9 @@ namespace Meli.Quasar.Api
             #region Configuration Injection Dependency
 
             services.AddTransient<ICommunicationService, CommunicationService>();
-            services.AddTransient<ICommunicationRepository, CommunicationRepository>();
+            services.AddSingleton<ICommunicationRepository, CommunicationRepository>();
             services.AddTransient<IMessageService, MessageService>();
             services.AddTransient<ILocationService, LocationService>();
-
             services.AddTransient<IInvalidResponseBuilder, InvalidResponseBuilder>();
 
             #endregion
@@ -151,8 +149,7 @@ namespace Meli.Quasar.Api
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
-            app.UseSwagger(c => { c.SerializeAsV2 = true;
-});
+            app.UseSwagger(c => { c.SerializeAsV2 = true;});
 
             app.UseSwaggerUI(provider.SwaggerOptionUi);
 

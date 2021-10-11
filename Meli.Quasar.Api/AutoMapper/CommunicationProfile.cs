@@ -14,7 +14,7 @@ namespace Meli.Quasar.Api.AutoMapper
         public CommunicationProfile()
         {
            CreateMap<Point, Common.Dtos.Communication.PointDto>().ReverseMap();
-            CreateMap<SatelliteSplit, Common.Dtos.Communication.SatelliteSplitDto>().ReverseMap();
+            CreateMap<SatelliteSplit, Common.Dtos.Communication.SatelliteSplitResponseDto>().ReverseMap();
 
         }
     }

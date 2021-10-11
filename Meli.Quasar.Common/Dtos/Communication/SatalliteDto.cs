@@ -1,5 +1,6 @@
 ﻿using Meli.Quasar.Common.Attributes;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Meli.Quasar.Common.Dtos.Communication
 {
@@ -8,6 +9,8 @@ namespace Meli.Quasar.Common.Dtos.Communication
 
         [SatelliteName]
         public string Name { get; }
+
+        [Range(0, double.MaxValue, ErrorMessage = "La distancia a un satellite no puede ser negativa")]
         public double Distance { get;  }
         public List<string> Message { get; }
 

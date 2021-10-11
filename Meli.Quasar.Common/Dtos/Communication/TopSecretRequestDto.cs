@@ -2,10 +2,10 @@
 
 namespace Meli.Quasar.Common.Dtos.Communication
 {
-    public class PostTopSecretRequestDto
+    public class TopSecretRequestDto
     {
         public List<SatalliteDto> Satellites { get; }
-        public PostTopSecretRequestDto(List<SatalliteDto> satellites)
+        public TopSecretRequestDto(List<SatalliteDto> satellites)
         {
             Satellites = satellites;
         }

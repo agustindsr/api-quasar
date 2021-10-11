@@ -25,13 +25,13 @@
             </summary>
             <param name="communicationService"></param>
         </member>
-        <member name="M:Meli.Quasar.Api.Controllers.CommunicationController.TopSecret(Meli.Quasar.Common.Dtos.Communication.PostTopSecretRequestDto)">
+        <member name="M:Meli.Quasar.Api.Controllers.CommunicationController.TopSecret(Meli.Quasar.Common.Dtos.Communication.TopSecretRequestDto)">
             <summary>
             Communication top secret
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Meli.Quasar.Api.Controllers.CommunicationController.AddOrUpdateSatelliteSplit(System.String,Meli.Quasar.Common.Dtos.Communication.PostSatelliteSplitRequestDto)">
+        <member name="M:Meli.Quasar.Api.Controllers.CommunicationController.AddOrUpdateSatelliteSplit(System.String,Meli.Quasar.Common.Dtos.Communication.SatelliteSplitRequestDto)">
             <summary>
             Communication top secret
             </summary>

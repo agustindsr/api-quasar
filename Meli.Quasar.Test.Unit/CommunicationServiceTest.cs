@@ -62,7 +62,7 @@ namespace Meli.Quasar.Test.Unit
 
             IMessageServiceMock.Setup(x => x.GetMessage(It.IsAny<List<List<string>>>())).Returns("este es un mensaje secreto");
 
-            var dtoResquest = new PostTopSecretRequestDto(new List<SatalliteDto>
+            var dtoResquest = new TopSecretRequestDto(new List<SatalliteDto>
                 {
                     new SatalliteDto(SatelliteNames.kenobi.ToString(), 100.0, new List<string> { "este", "", "", "mensaje", ""}),
                     new SatalliteDto(SatelliteNames.skywalker.ToString(), 115.5, new List<string> { "", "es", "", "", "secreto"}),
@@ -86,7 +86,7 @@ namespace Meli.Quasar.Test.Unit
             IMessageServiceMock.Setup(x => x.GetMessage(It.IsAny<List<List<string>>>())).Throws(new CalculateMessageException());
 
 
-            var dtoResquest = new PostTopSecretRequestDto(new List<SatalliteDto>
+            var dtoResquest = new TopSecretRequestDto(new List<SatalliteDto>
                 {
                     new SatalliteDto(SatelliteNames.kenobi.ToString(), 100.0, new List<string> { "este", "", "", "mensaje", "", ""}),
                     new SatalliteDto(SatelliteNames.skywalker.ToString(), 115.5, new List<string> { "", "", "", "", "secreto"}),
@@ -107,7 +107,7 @@ namespace Meli.Quasar.Test.Unit
             ILocationServiceMock.Setup(x => x.GetLocation(It.IsAny<PointDistance>(), It.IsAny<PointDistance>(), It.IsAny<PointDistance>()))
                 .Throws(new CalculatePositionException());
 
-            var dtoResquest = new PostTopSecretRequestDto(new List<SatalliteDto>
+            var dtoResquest = new TopSecretRequestDto(new List<SatalliteDto>
                 {
                     new SatalliteDto(SatelliteNames.kenobi.ToString(), 100.0, new List<string> { "este", "", "", "mensaje", "", ""}),
                     new SatalliteDto(SatelliteNames.skywalker.ToString(), 115.5, new List<string> { "", "", "", "", "secreto"}),
@@ -138,7 +138,7 @@ namespace Meli.Quasar.Test.Unit
 
             IMessageServiceMock.Setup(x => x.GetMessage(It.IsAny<List<List<string>>>())).Returns("este es un mensaje secreto");
 
-            var dtoResquest = new PostTopSecretRequestDto(new List<SatalliteDto>
+            var dtoResquest = new TopSecretRequestDto(new List<SatalliteDto>
                 {
                     new SatalliteDto(SatelliteNames.kenobi.ToString(), 100.0, new List<string> { "este", "", "", "mensaje", ""}),
                     new SatalliteDto(SatelliteNames.skywalker.ToString(), 115.5, new List<string> { "", "es", "", "", "secreto"}),
