@@ -46,3 +46,8 @@ Ir la carpeta raíz del proyecto y correr los siguientes comandos en consola:
 ### Validaciones
 - Todas las distancias deben ser números positivos.
 - Los nombres de los satellites tienen que ser válidos (kenobi, sato o skywalker).
+
+### Extras
+
+- Se agregó un endpoint para borrar un dato almacenado.
+- Se agregó un endpoint para obtener el listado de los datos almacenados.
